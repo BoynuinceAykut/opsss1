@@ -1,0 +1,89 @@
+﻿@model OgrenciPortal.UI.Areas.Ogrenci.Model.ModelKayitVeGirisUI
+
+@{
+    ViewBag.Title = "KayitOl-GirisYap";
+    Layout = "~/Areas/Ogrenci/Views/Shared/Ogrenci_Layout.cshtml";
+}
+
+<h2>KayitOl-GirisYap</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Üye Ol</h3>
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("OgrenciKayit", "UyeVeGiris"))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="editor-label">
+                        <span>Adı</span>
+                    </div>
+                    <div class="editor-field">
+                        <input type="text" name="modelOgrenciIKayit.Adi" required="required" class="form-control" />
+                    </div>
+
+                    <div class="editor-label">
+                        <span>Soyadı</span>
+                    </div>
+                    <div class="editor-field">
+                        <input type="text" name="modelOgrenciIKayit.Soyadi" required="required" class="form-control" />
+                    </div>
+
+                    <div class="editor-label">
+                        <span>Email</span>
+                    </div>
+                    <div class="editor-field">
+                        <input type="email" name="modelOgrenciIKayit.Email" required="required" class="form-control" />
+                    </div>
+
+                    <div class="editor-label">
+                        <span>Şifre</span>
+                    </div>
+                    <div class="editor-field">
+                        <input type="password" name="modelOgrenciIKayit.Sifre" required="required" class="form-control" />
+                    </div>
+
+                    <p>
+                        <input type="submit" value="Üye Ol" class="btn btn-primary" />
+                    </p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Giriş Yap</h3>
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("OgrenciGiris", "UyeVeGiris"))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="editor-label">
+                        <span>Email</span>
+                    </div>
+                    <div class="editor-field">
+                        <input type="email" name="modelogrencigiris.Email" required="required" class="form-control"  />
+                    </div>
+
+                    <div class="editor-label">
+                        <span>Şifre</span>
+                    </div>
+                    <div class="editor-field">
+                        <input type="password" name="modelogrencigiris.Sifre" required="required" class="form-control" />
+                    </div>
+
+                    <p>
+                        <input type="submit" value="Giriş Yap" class="btn btn-primary" />
+                    </p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
